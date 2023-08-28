@@ -26,17 +26,22 @@
 </style>
 
 <body>
-    <div class="main d-flex justify-content-center align-items-center">
+    <div class="main d-flex flex-column justify-content-center align-items-center">
+        @if (session('status'))
+            <div class="alert alert-danger">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="login-box">
             <form action="" method="post">
                 @csrf
                 <div>
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" name="username" id="username" class="form-control">
+                    <input type="text" name="username" id="username" class="form-control" required>
                 </div>
                 <div>
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" id="password" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control" required>
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary form-control">Login</button>
