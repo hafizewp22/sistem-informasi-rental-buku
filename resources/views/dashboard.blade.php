@@ -3,7 +3,68 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequuntur earum tenetur quidem sint sit error labore assumenda culpa asperiores in, impedit architecto sed laudantium iure dicta eaque harum sunt? Velit expedita ducimus incidunt exercitationem et facere totam, similique suscipit harum cumque, error officia ab iure debitis non nemo minima molestias voluptatem esse laboriosam. Accusantium vitae dolores impedit, unde veritatis quisquam, delectus dolore dolorem tenetur ea facilis culpa perspiciatis recusandae pariatur, nihil expedita. Repellendus rem quos ex nam commodi, inventore temporibus velit illum nobis soluta ipsum expedita dolor sint libero aperiam porro perferendis impedit! Totam dicta placeat fugit enim quas. Nesciunt id facilis ut quos necessitatibus dolore voluptatum commodi culpa tempora, quam veritatis! Corrupti magni doloremque autem blanditiis asperiores consequatur, ipsam quisquam impedit molestiae cumque, quis, doloribus qui accusantium eveniet ratione quidem! Neque nihil odio nisi harum ducimus veritatis, tenetur assumenda molestias eius itaque! Soluta doloribus unde, minima explicabo nisi, magni nam odit incidunt tempore possimus illum ab nobis inventore porro aperiam est repellendus nostrum rerum minus autem dolor! Iusto quis quia dolor et enim veritatis veniam dicta blanditiis neque soluta, aspernatur suscipit aliquam quidem tempore cupiditate vel, ratione a rem, iste tempora. Veniam sunt excepturi porro deleniti tempora, repellat ipsum cum. Fugit repellat esse natus minus porro ut dignissimos repudiandae facilis deserunt architecto, in ipsum! Earum magnam dolores accusamus facere sed tempora inventore minus veritatis voluptas velit rem dignissimos consequatur, voluptatum, facilis incidunt id ad sint. Nam laborum quisquam neque odit quia at, temporibus velit sequi accusantium dolorum eaque a fuga. Ipsum, cupiditate mollitia quos animi rerum, ea sunt iure voluptas sapiente natus, cumque praesentium tempora necessitatibus reiciendis fugiat. Earum aperiam cum non optio ea dolorem quae consequatur iste neque rem obcaecati ratione alias quam aliquid, explicabo esse magni maxime, animi vitae velit facere officiis reprehenderit nobis debitis! Officia quod nostrum odio rerum ipsum dignissimos quos voluptatum. Deserunt eveniet minus, dolor adipisci eligendi delectus earum doloremque quam tenetur, sunt beatae eaque rem sapiente at. Iusto quidem consequatur, ad, facere totam, illo modi iste omnis commodi odio sunt dolores non dicta placeat molestias dignissimos error quasi excepturi fugiat cupiditate sint inventore deserunt. Tempore hic nemo error earum minus iusto labore magni temporibus. Hic iusto nulla expedita velit atque veritatis ut fuga quaerat totam et labore, laudantium aliquid corporis laboriosam quam aperiam beatae officia incidunt iure nesciunt. Facere, laborum blanditiis? Ut facere praesentium perferendis nostrum. Perspiciatis error, eum fuga soluta dolores sequi perferendis atque eaque nemo, fugiat dolorem, enim nostrum inventore consequatur ipsam repudiandae consectetur odio facilis repellat aperiam minima maiores quisquam possimus. Voluptatibus harum natus quam iste porro, ratione laborum alias eum labore aperiam iusto quo voluptatem, esse sequi obcaecati nemo, aspernatur veritatis quisquam eaque architecto animi amet. Minima libero praesentium atque quidem nihil sapiente nisi alias cupiditate. Voluptatibus, iste doloribus molestiae odio, hic, consequuntur ipsa mollitia quas consectetur accusantium maxime. Saepe quasi voluptates iure alias, exercitationem recusandae suscipit? Ducimus laudantium expedita beatae, temporibus ullam, ad provident assumenda accusamus necessitatibus debitis officia in consequatur quia cumque itaque. Numquam, hic quibusdam!
-    </p>
+
+    <h1>Welcome, {{ Auth::user()->username }}</h1>
+
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <div class="card-data book">
+                <div class="row">
+                    <div class="col-6"><i class="bi bi-journal-bookmark"></i></div>
+                    <div class="col-6 d-flex flex-column justify-content-center align-items-end">
+                        <div class="card-desc">Books</div>    
+                        <div class="card-count">{{ $bookCount }}</div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card-data category">
+                <div class="row">
+                    <div class="col-6"><i class="bi bi-list-task"></i></div>
+                    <div class="col-6 d-flex flex-column justify-content-center align-items-end">
+                        <div class="card-desc">Categories</div>    
+                        <div class="card-count">{{ $categoryCount }}</div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card-data user">
+                <div class="row">
+                    <div class="col-6"><i class="bi bi-people"></i></div>
+                    <div class="col-6 d-flex flex-column justify-content-center align-items-end">
+                        <div class="card-desc">Users</div>    
+                        <div class="card-count">{{ $userCount }}</div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="mt-5">
+        <h2>#Rent Log</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>User</th>
+                    <th>Book Title</th>
+                    <th>Rent Date</th>
+                    <th>Return Date</th>
+                    <th>Actual Rerutn Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7" style="text-align: center">No Data</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 @endsection
