@@ -42,4 +42,15 @@ class CategoryController extends Controller
         $category->update($request->all());
         return redirect('categories')->with('status', 'Category Updated Successfull');
     }
+
+    public function delete($slug) {
+        $category = Category::where('slug', $slug)->first();
+        return view('category-delete', compact('category'));
+    }
+
+    public function destroy($slug) {
+        $category = Category::where('slug', $slug)->first();
+        $category->delete();
+        return redirect('categories')->with('status', 'Category Deleted Successfull');
+    }
 }
