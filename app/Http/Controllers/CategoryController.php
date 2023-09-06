@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(Request $request) {
+    public function index() {
         $categories = Category::all();
         return view('category', compact('categories'));
 
     }
 
-    public function add(Request $request) {
+    public function add() {
         return view('category-add');
 
     }
