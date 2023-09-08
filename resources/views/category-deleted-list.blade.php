@@ -33,7 +33,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->name }}</td>
                         <td>
-                            <a href="category-restore/{{$item->slug}}">Restore</a>
+                            <a href="/category-restore/{{$item->slug}}">Restore</a>
                         </td>
                     </tr>
                 @endforeach

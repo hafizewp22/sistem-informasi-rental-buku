@@ -5,7 +5,7 @@
 @section('content')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <h1>Add New Book</h1>
+    <h1>Edit Book</h1>
 
     <div class="mt-5 w-50">
 

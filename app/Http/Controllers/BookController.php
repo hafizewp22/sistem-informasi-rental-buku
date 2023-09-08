@@ -60,4 +60,26 @@ class BookController extends Controller
 
         return redirect('books')->with('status', 'Book Updated Successfull');
     }
+
+    public function delete($slug) {
+        $book = Book::where('slug', $slug)->first();
+        return view('book-delete', compact('book'));
+    }
+
+    public function destroy($slug) {
+        $book = Book::where('slug', $slug)->first();
+        $book->delete();
+        return redirect('books')->with('status', 'Book Deleted Successfull');
+    }
+
+    public function deleteBook() {
+        $deletedBooks = Book::onlyTrashed()->get(); 
+        return view('book-deleted-list', compact('deletedBooks'));
+    }
+
+    public function restore($slug) {
+        $book = Book::withTrashed()->where('slug', $slug)->first(); 
+        $book->restore();
+        return redirect('books')->with('status', 'Book Restored Successfull');
+    }
 }
