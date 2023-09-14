@@ -35,4 +35,26 @@ class UserController extends Controller
 
         return redirect('user-detail/'.$slug)->with('status', 'User Approved Successfull');
     }
+
+    public function delete($slug) {
+        $user = User::where('slug', $slug)->first();
+        return view('user-delete', compact('user'));
+    }
+
+    public function destroy($slug) {
+        $user = User::where('slug', $slug)->first();
+        $user->delete();
+        return redirect('users')->with('status', 'User Deleted Successfull');
+    }
+
+    public function bannedUser() {
+        $bannedUsers = User::onlyTrashed()->get(); 
+        return view('user-banned', compact('bannedUsers'));
+    }
+
+    public function restore($slug) {
+        $user = User::withTrashed()->where('slug', $slug)->first(); 
+        $user->restore();
+        return redirect('users')->with('status', 'User Restored Successfull');
+    }
 }
