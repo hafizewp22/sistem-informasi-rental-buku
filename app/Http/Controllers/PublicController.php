@@ -8,26 +8,23 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $categories = Category::all();
 
-        if ($request->category || $request->title) {
-            // $books = Book::join('book_categorys', 'books.id', '=', 'book_categorys.book_id')
-            // ->join('categories', 'book_categorys.category_id', '=', 'categories.id')
-            // ->orWhere('books.title', '=', '%'.$request->title.'%')
-            // ->orWhere('categories.id', '=', $request->category)
-            // ->get();
-            $books = Book::where('title', 'like', '%'.$request->title.'%')
-                        ->orWhereHas('categories', function($q) use($request) {
-                            $q->where('categories.id', $request->category);
-                        })->get();
-                       
-            // $books = Book::whereHas('categories', function($q) use($request) {
-            //     $q->where('categories.id', $request->category);
-            // })->get();
-        } else {
-            $books = Book::all();
+        $query = Book::query();
+
+        if ($request->category) {
+            $query->whereHas('categories', function ($q) use ($request) {
+                $q->where('categories.id', $request->category);
+            });
         }
+
+        if ($request->title) {
+            $query->where('title', 'like', '%' . $request->title . '%');
+        }
+
+        $books = $query->get();
 
         return view('book-list', compact('books', 'categories'));
     }
