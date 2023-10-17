@@ -3,5 +3,9 @@
 @section('title', 'Rent Long')
 
 @section('content')
-    ini halaman Rent Long
+    <h1>Rent Log List</h1>
+
+    <div class="mt-5">
+        <x-rent-log-table :rentlog='$rentLogs' />
+    </div>
 @endsection
